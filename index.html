@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SA Barbieux - Artisans du bâtiment depuis 1913 à Lille. Couverture, plomberie, chauffage, climatisation et plus. Entreprise familiale certifiée Qualibat RGE.">
+    <meta name="keywords" content="couvreur Lille, plombier Lille, chauffagiste Lille, électricien Lille, SA Barbieux, artisan bâtiment">
+    <meta property="og:title" content="SA Barbieux | Artisans du bâtiment depuis 1913">
+    <meta property="og:description" content="Entreprise familiale de couverture, plomberie, chauffage et climatisation à Lille depuis 4 générations.">
+    <meta property="og:type" content="website">
+    <title>SA Barbieux | Artisans du bâtiment depuis 1913 - Lille</title>
+    <link rel="icon" type="image/png" href="LOGO.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Hero Section - Page d'accueil */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(11,17,32,0.92) 0%, rgba(16,24,40,0.88) 50%, rgba(26,39,68,0.85) 100%),
+                        url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 20%, rgba(0,210,106,.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(0,210,106,.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            padding: 7rem 0 4rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                gap: 4rem;
+            }
+        }
+        
+        .hero-content {
+            text-align: center;
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-content {
+                text-align: left;
+            }
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            background: rgba(0,210,106,.1);
+            border: 1px solid rgba(0,210,106,.3);
+            padding: .5rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green-primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .hero-badge span {
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--green-primary);
+            letter-spacing: .05em;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-weight: 400;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-title .highlight {
+            color: var(--green-primary);
+        }
+        
+        .hero-title .year {
+            display: inline-block;
+            font-size: .6em;
+            color: var(--gold);
+            vertical-align: super;
+        }
+        
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--gray-400);
+            margin-bottom: 2rem;
+            max-width: 520px;
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-description {
+                margin-left: 0;
+            }
+        }
+        
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-cta {
+                justify-content: flex-start;
+            }
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,.1);
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-stat {
+                text-align: left;
+            }
+        }
+        
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            color: var(--green-primary);
+            line-height: 1;
+        }
+        
+        .hero-stat-label {
+            font-size: .85rem;
+            color: var(--gray-400);
+            margin-top: .25rem;
+        }
+        
+        /* Video Showcase */
+        .hero-media {
+            position: relative;
+        }
+        
+        .video-showcase {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            border: 1px solid rgba(0,210,106,.2);
+        }
+        
+        .video-showcase video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(11,17,32,.95), transparent);
+        }
+        
+        .video-label {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+        }
+        
+        .video-label-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-label-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--navy-deep);
+        }
+        
+        .video-label-text {
+            font-size: .9rem;
+            color: var(--white);
+        }
+        
+        .video-label-text strong {
+            display: block;
+            font-weight: 600;
+        }
+        
+        .video-label-text span {
+            font-size: .8rem;
+            color: var(--gray-400);
+        }
+        
+        .video-badges {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .video-badge {
+            flex: 1;
+            min-width: 140px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1rem 1.25rem;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+        }
+        
+        .video-badge-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--green-subtle);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .video-badge-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--green-primary);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .video-badge-content strong {
+            display: block;
+            font-size: .95rem;
+            color: var(--navy);
+        }
+        
+        .video-badge-content span {
+            font-size: .75rem;
+            color: var(--gray-500);
+        }
+        
+        /* Services Preview */
+        .services-preview {
+            padding: var(--section-padding) 0;
+            background: var(--white);
+        }
+        
+        /* Avis Preview */
+        .reviews-preview {
+            padding: var(--section-padding) 0;
+            background: var(--off-white);
+        }
+        
+        .reviews-preview .reviews-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        /* Zone Preview */
+        .zone-preview {
+            padding: var(--section-padding) 0;
+            background: var(--navy);
+        }
+        
+        .zone-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 1024px) {
+            .zone-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .zone-cities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+            margin-top: 2rem;
+        }
+        
+        .zone-city {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .5rem 1rem;
+            background: rgba(255,255,255,.05);
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 50px;
+            font-size: .85rem;
+            color: var(--gray-300);
+        }
+        
+        .zone-city svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--green-primary);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .zone-city.zone-highlight {
+            background: var(--green-primary);
+            border-color: var(--green-primary);
+            color: var(--navy-deep);
+        }
+        
+        .zone-city.zone-highlight svg {
+            stroke: var(--navy-deep);
+        }
+        
+        .zone-map {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .zone-map iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+        }
+    </style>
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "SA Barbieux",
+        "description": "Entreprise familiale de couverture, plomberie, chauffage et climatisation à Lille depuis 1913",
+        "image": "LOGO.png",
+        "telephone": "03 20 56 78 77",
+        "email": "pbarbieux@wanadoo.fr",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "78 rue Malsence",
+            "addressLocality": "Lille",
+            "postalCode": "59800",
+            "addressCountry": "FR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 50.6365654,
+            "longitude": 3.0411881
+        },
+        "foundingDate": "1913",
+        "priceRange": "€€"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <img src="LOGO.png" alt="SA Barbieux" width="48" height="48">
+                    <span class="logo-text">SA <span>Barbieux</span></span>
+                </a>
+                
+                <nav class="nav" id="nav">
+                    <ul class="nav-menu">
+                        <li class="nav-item has-dropdown">
+                            <a href="services.html" class="nav-link">
+                                Services
+                                <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="couverture-zinguerie.html" class="dropdown-link">
+                                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                                    Couverture & Zinguerie
+                                </a>
+                                <a href="plomberie-sanitaire.html" class="dropdown-link">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>
+                                    Plomberie & Sanitaire
+                                </a>
+                                <a href="chauffage-isolation.html" class="dropdown-link">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-6.88 17.23l.53.47A10 10 0 1 0 12 2z"/></svg>
+                                    Chauffage & Climatisation
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="services.html" class="dropdown-link">
+                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                                    Tous nos services
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="histoire.html" class="nav-link">Histoire</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="realisations.html" class="nav-link">Réalisations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="avis.html" class="nav-link">Avis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="nav-cta">Devis gratuit</a>
+                </nav>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    <span>Certifié Qualibat RGE</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Artisans du <span class="highlight">bâtiment</span><br>
+                    depuis <span class="year">1913</span>
+                </h1>
+                
+                <p class="hero-description">
+                    4 générations de savoir-faire au service de votre habitat. Couverture, plomberie, chauffage et plus à Lille et dans toute la métropole.
+                </p>
+                
+                <div class="hero-cta">
+                    <a href="tel:0320567877" class="btn btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        03 20 56 78 77
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">Demander un devis</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">110<span class="stat-plus">+</span></div>
+                        <div class="hero-stat-label">Années d'expérience</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">5000<span class="stat-plus">+</span></div>
+                        <div class="hero-stat-label">Projets réalisés</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">1200<span class="stat-plus">+</span></div>
+                        <div class="hero-stat-label">Clients Actuels</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-media">
+                <div class="video-showcase">
+                    <video autoplay loop muted playsinline>
+                        <source src="Camion_roule.mov" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <div class="video-label">
+                            <div class="video-label-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            </div>
+                            <div class="video-label-text">
+                                <strong>Véhicule d'époque SA Barbieux</strong>
+                                <span>Patrimoine familial depuis 1913</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-badges">
+                    <div class="video-badge">
+                        <div class="video-badge-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="video-badge-content">
+                            <strong>Qualibat RGE</strong>
+                            <span>Certification officielle</span>
+                        </div>
+                    </div>
+                    <div class="video-badge">
+                        <div class="video-badge-icon">
+                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="video-badge-content">
+                            <strong>4ème génération</strong>
+                            <span>Entreprise familiale</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="container">
+            <div class="trust-bar-inner">
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span>Garantie décennale</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Intervention rapide</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    <span>Devis gratuit sous 48h</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Équipe 100% locale</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Services Preview -->
+    <section class="services-preview">
+        <div class="container">
+            <div class="services-header reveal">
+                <span class="section-label">Nos expertises</span>
+                <h2 class="section-title">Des services complets pour votre habitat</h2>
+                <p class="section-subtitle">Du toit à la plomberie, nous prenons en charge tous vos travaux du bâtiment.</p>
+            </div>
+            
+            <div class="services-grid">
+                <article class="service-card reveal" data-image="hero-bg.jpg">
+                    <div class="service-card-bg"></div>
+                    <div class="service-card-content">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <h3>Couverture & Zinguerie</h3>
+                        <p>Toiture, ardoise, tuiles, zinc, gouttières et étanchéité pour protéger votre habitat.</p>
+                        <a href="couverture-zinguerie.html" class="service-link">
+                            En savoir plus
+                            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="service-card reveal" data-image="plomberie-sdb-1.png">
+                    <div class="service-card-bg"></div>
+                    <div class="service-card-content">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/></svg>
+                        </div>
+                        <h3>Plomberie & Sanitaire</h3>
+                        <p>Installation, réparation et rénovation de vos équipements sanitaires et réseaux d'eau.</p>
+                        <a href="plomberie-sanitaire.html" class="service-link">
+                            En savoir plus
+                            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="service-card reveal" data-image="chauffage-ventilation-1.jpg">
+                    <div class="service-card-bg"></div>
+                    <div class="service-card-content">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-6.88 17.23l.53.47A10 10 0 1 0 12 2z"/><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                        </div>
+                        <h3>Chauffage & Climatisation</h3>
+                        <p>Chaudières, pompes à chaleur, radiateurs, climatisation et isolation thermique.</p>
+                        <a href="chauffage-isolation.html" class="service-link">
+                            En savoir plus
+                            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-4 reveal">
+                <a href="services.html" class="btn btn-outline">
+                    Découvrir tous nos services
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Réalisations Preview -->
+    <section class="realisations-preview" style="padding: var(--section-padding) 0; background: var(--off-white);">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Nos réalisations</span>
+                <h2 class="section-title">Quelques exemples de travaux</h2>
+                <p class="section-subtitle" style="margin: 0 auto;">Découvrez le savoir-faire de nos équipes à travers nos récentes interventions.</p>
+            </div>
+            
+            <div class="portfolio-grid" style="margin-top: 3rem;">
+                <article class="portfolio-item reveal">
+                    <img src="couverture-tuiles-1.jpg" alt="Couverture tuiles" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Couverture tuiles</h4>
+                        <span>Métropole Lilloise</span>
+                    </div>
+                </article>
+                
+                <article class="portfolio-item reveal">
+                    <img src="plomberie-sdb-1.png" alt="Rénovation salle de bain" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Salle de bain moderne</h4>
+                        <span>Métropole Lilloise</span>
+                    </div>
+                </article>
+                
+                <article class="portfolio-item reveal">
+                    <img src="chauffage-ventilation-1.jpg" alt="Ventilation intégrée" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Ventilation intégrée</h4>
+                        <span>Métropole Lilloise</span>
+                    </div>
+                </article>
+                
+                <article class="portfolio-item reveal">
+                    <img src="couverture-gouttieres-1.jpg" alt="Gouttières zinc" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Gouttières zinc</h4>
+                        <span>Métropole Lilloise</span>
+                    </div>
+                </article>
+                
+                <article class="portfolio-item reveal">
+                    <img src="couverture-zinc-1.jpg" alt="Couverture zinc" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Couverture zinc</h4>
+                        <span>Métropole Lilloise</span>
+                    </div>
+                </article>
+                
+                <article class="portfolio-item reveal">
+                    <img src="chauffage-split-1.jpg" alt="Split réversible" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Split réversible</h4>
+                        <span>Métropole Lilloise</span>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="realisations.html" class="btn btn-outline">Voir toutes nos réalisations</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Avis Preview -->
+    <section class="reviews-preview" style="background: var(--white);">
+        <div class="container">
+            <div class="reviews-header reveal">
+                <span class="section-label">Témoignages</span>
+                <h2 class="section-title">Ce que disent nos clients</h2>
+                <p class="section-subtitle">Plus de 110 ans de confiance et de satisfaction client.</p>
+            </div>
+            
+            <div class="reviews-grid">
+                <article class="review-card reveal">
+                    <div class="review-header">
+                        <div class="review-avatar">J</div>
+                        <div class="review-author">
+                            <h4>jipé59</h4>
+                            <span>Janvier 2024</span>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p class="review-text">"Équipe très professionnelle et réactive. Intervention rapide pour une fuite urgente. Travail soigné et prix honnête. Je recommande vivement !"</p>
+                    <span class="review-service">Plomberie</span>
+                </article>
+                
+                <article class="review-card reveal">
+                    <div class="review-header">
+                        <div class="review-avatar">M</div>
+                        <div class="review-author">
+                            <h4>Marie D.</h4>
+                            <span>Décembre 2023</span>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p class="review-text">"Rénovation complète de notre toiture. Un travail impeccable réalisé par une équipe sérieuse et ponctuelle. Le résultat dépasse nos attentes."</p>
+                    <span class="review-service">Couverture</span>
+                </article>
+                
+                <article class="review-card reveal">
+                    <div class="review-header">
+                        <div class="review-avatar">P</div>
+                        <div class="review-author">
+                            <h4>Philippe L.</h4>
+                            <span>Novembre 2023</span>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p class="review-text">"Installation de notre nouvelle chaudière très bien réalisée. Équipe compétente qui prend le temps d'expliquer le fonctionnement."</p>
+                    <span class="review-service">Chauffage</span>
+                </article>
+            </div>
+            
+            <div class="text-center mt-4 reveal">
+                <a href="avis.html" class="btn btn-outline">
+                    Voir tous les avis
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Zone Preview -->
+    <section class="zone-preview">
+        <div class="container">
+            <div class="zone-grid">
+                <div class="reveal-left">
+                    <span class="section-label gold">Zone d'intervention</span>
+                    <h2 class="section-title light">Lille et toute la métropole</h2>
+                    <p class="section-subtitle light">Basés au cœur de Lille depuis 1913, nous intervenons rapidement sur l'ensemble de la Métropole Européenne de Lille.</p>
+                    
+                    <div class="zone-cities">
+                        <span class="zone-city zone-highlight">
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Lille
+                        </span>
+                        <span class="zone-city">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                            Lambersart
+                        </span>
+                        <span class="zone-city">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                            La Madeleine
+                        </span>
+                        <span class="zone-city">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                            Marcq-en-Barœul
+                        </span>
+                        <span class="zone-city">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                            Roubaix
+                        </span>
+                        <span class="zone-city">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                            Tourcoing
+                        </span>
+                        <span class="zone-city">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                            Villeneuve-d'Ascq
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="zone-map reveal-right">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.7148046040347!2d3.0411881!3d50.6365654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d5892b4d3c8f%3A0x8c1b36c52f18c7e8!2s78%20Rue%20Malsence%2C%2059800%20Lille!5e0!3m2!1sfr!2sfr!4v1702656000000!5m2!1sfr!2sfr" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Localisation SA Barbieux">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" style="padding: var(--section-padding) 0; background: var(--white);">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-intro reveal-left">
+                    <span class="section-label">Contact</span>
+                    <h2 class="section-title">Demandez votre devis gratuit</h2>
+                    <p>Décrivez-nous votre projet et nous vous recontacterons sous 48h avec une proposition personnalisée.</p>
+                    
+                    <div class="contact-quick-info" style="margin-top: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="width: 48px; height: 48px; background: var(--green-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green-primary)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div>
+                                <strong style="display: block; color: var(--navy);">Téléphone</strong>
+                                <a href="tel:0320567877" style="color: var(--green-primary); font-weight: 600;">03 20 56 78 77</a>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 48px; height: 48px; background: var(--green-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green-primary)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div>
+                                <strong style="display: block; color: var(--navy);">Adresse</strong>
+                                <span style="color: var(--gray-600);">78 rue Malsence, 59800 Lille</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper reveal-right">
+                    <div style="background: var(--navy); padding: 2rem; border-radius: var(--radius-xl);">
+                        <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--white); margin-bottom: .5rem;">Demande de devis gratuit</h3>
+                        <p style="color: var(--gray-400); margin-bottom: 1.5rem; font-size: .95rem;">Remplissez le formulaire ci-dessous, nous vous recontactons sous 48h.</p>
+                        
+                        <form id="contactFormHome">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nom_home" style="color: var(--white);">Nom complet *</label>
+                                    <input type="text" id="nom_home" name="nom" placeholder="Jean Dupont" required style="background: var(--navy-light); border-color: var(--navy-light); color: var(--white);">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telephone_home" style="color: var(--white);">Téléphone *</label>
+                                    <input type="tel" id="telephone_home" name="telephone" placeholder="06 XX XX XX XX" required style="background: var(--navy-light); border-color: var(--navy-light); color: var(--white);">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email_home" style="color: var(--white);">Email</label>
+                                <input type="email" id="email_home" name="email" placeholder="jean@exemple.fr" style="background: var(--navy-light); border-color: var(--navy-light); color: var(--white);">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service_home" style="color: var(--white);">Type de prestation *</label>
+                                <select id="service_home" name="service" required style="background: var(--navy-light); border-color: var(--navy-light); color: var(--white);">
+                                    <option value="">Sélectionnez un service</option>
+                                    <option value="couverture">Couverture / Toiture</option>
+                                    <option value="zinguerie">Zinguerie / Gouttières</option>
+                                    <option value="plomberie">Plomberie</option>
+                                    <option value="sanitaire">Salle de bain / Sanitaire</option>
+                                    <option value="chauffage">Chauffage</option>
+                                    <option value="climatisation">Climatisation</option>
+                                    <option value="ventilation">Ventilation</option>
+                                    <option value="isolation">Isolation</option>
+                                    <option value="urgence">Dépannage urgent</option>
+                                    <option value="autre">Autre demande</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message_home" style="color: var(--white);">Décrivez votre projet</label>
+                                <textarea id="message_home" name="message" placeholder="Décrivez votre projet en quelques mots : type de travaux, surface, délai souhaité..." style="background: var(--navy-light); border-color: var(--navy-light); color: var(--white);"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary form-submit" style="width: 100%;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                Envoyer ma demande
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-inner">
+                <div class="cta-content">
+                    <h3>Un projet ? Une urgence ?</h3>
+                    <p>Contactez-nous dès maintenant pour un devis gratuit et personnalisé.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="tel:0320567877" class="btn btn-dark">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        03 20 56 78 77
+                    </a>
+                    <a href="contact.html" class="btn btn-dark">Demander un devis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="LOGO.png" alt="SA Barbieux" width="48" height="48">
+                        <span class="logo-text">SA <span>Barbieux</span></span>
+                    </a>
+                    <p class="footer-description">Artisans du bâtiment depuis 1913. Couverture, plomberie, chauffage et plus à Lille et dans toute la métropole.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="couverture-zinguerie.html">Couverture & Zinguerie</a></li>
+                        <li><a href="plomberie-sanitaire.html">Plomberie & Sanitaire</a></li>
+                        <li><a href="chauffage-isolation.html">Chauffage & Climatisation</a></li>
+                        <li><a href="realisations.html">Réalisations</a></li>
+                        <li><a href="avis.html">Avis clients</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>
+                        <strong>Adresse</strong><br>
+                        78 rue Malsence<br>
+                        59800 Lille
+                    </p>
+                    <p>
+                        <strong>Téléphone</strong><br>
+                        <a href="tel:0320567877">03 20 56 78 77</a>
+                    </p>
+                    <p>
+                        <strong>Email</strong><br>
+                        <a href="mailto:pbarbieux@wanadoo.fr">pbarbieux@wanadoo.fr</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 SA Barbieux. Tous droits réservés. | Entreprise certifiée Qualibat RGE</p>
+                <div class="footer-legal">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to top -->
+    <a href="#" class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+        <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+    </a>
+    
+    <!-- Mobile phone button -->
+    <a href="tel:0320567877" class="mobile-phone" aria-label="Appeler">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
