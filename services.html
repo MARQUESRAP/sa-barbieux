@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez tous les services de SA Barbieux : couverture, plomberie, chauffage, climatisation et isolation. Artisans qualifiés à Lille depuis 1913.">
+    <meta name="keywords" content="services bâtiment Lille, couvreur, plombier, chauffagiste, électricien, SA Barbieux">
+    <title>Nos Services | SA Barbieux - Artisans du bâtiment à Lille</title>
+    <link rel="icon" type="image/png" href="LOGO.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Services Family Cards */
+        .services-families {
+            padding: var(--section-padding) 0;
+        }
+        
+        .family-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all var(--transition-base);
+        }
+        
+        @media (min-width: 768px) {
+            .family-card {
+                grid-template-columns: 1fr 2fr;
+                gap: 3rem;
+            }
+        }
+        
+        .family-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--green-primary);
+        }
+        
+        .family-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--green-subtle);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .family-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--green-primary);
+            fill: none;
+            stroke-width: 1.5;
+        }
+        
+        .family-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            color: var(--navy);
+            margin-bottom: .75rem;
+        }
+        
+        .family-header p {
+            color: var(--gray-500);
+            margin-bottom: 1.5rem;
+        }
+        
+        .family-header .btn {
+            margin-top: .5rem;
+        }
+        
+        .family-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .family-service-item {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+        }
+        
+        .family-service-item:hover {
+            background: var(--green-subtle);
+        }
+        
+        .family-service-item svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--green-primary);
+            fill: none;
+            stroke-width: 2;
+            flex-shrink: 0;
+        }
+        
+        .family-service-item span {
+            font-size: .9rem;
+            color: var(--gray-700);
+        }
+        
+        /* Why Choose Us */
+        .why-section {
+            padding: var(--section-padding) 0;
+            background: var(--navy);
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .why-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .why-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(0,210,106,.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .why-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--green-primary);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .why-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--white);
+            margin-bottom: .75rem;
+        }
+        
+        .why-card p {
+            font-size: .9rem;
+            color: var(--gray-400);
+        }
+        
+        /* Urgence Banner */
+        .urgence-banner {
+            background: linear-gradient(135deg, var(--orange), #ef4444);
+            padding: 2rem 0;
+        }
+        
+        .urgence-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            text-align: center;
+        }
+        
+        .urgence-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .urgence-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .urgence-text h4 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--white);
+        }
+        
+        .urgence-text p {
+            color: rgba(255,255,255,.85);
+            font-size: .9rem;
+        }
+        
+        .urgence-banner .btn-white {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <img src="LOGO.png" alt="SA Barbieux" width="48" height="48">
+                    <span class="logo-text">SA <span>Barbieux</span></span>
+                </a>
+                
+                <nav class="nav" id="nav">
+                    <ul class="nav-menu">
+                        <li class="nav-item has-dropdown">
+                            <a href="services.html" class="nav-link">
+                                Services
+                                <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="couverture-zinguerie.html" class="dropdown-link">
+                                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                                    Couverture & Zinguerie
+                                </a>
+                                <a href="plomberie-sanitaire.html" class="dropdown-link">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>
+                                    Plomberie & Sanitaire
+                                </a>
+                                <a href="chauffage-isolation.html" class="dropdown-link">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-6.88 17.23l.53.47A10 10 0 1 0 12 2z"/></svg>
+                                    Chauffage & Climatisation
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="services.html" class="dropdown-link">
+                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                                    Tous nos services
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="histoire.html" class="nav-link">Histoire</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="realisations.html" class="nav-link">Réalisations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="avis.html" class="nav-link">Avis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="nav-cta">Devis gratuit</a>
+                </nav>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-bg" style="background-image: url('hero-services.jpg');"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <nav class="breadcrumb">
+                    <a href="index.html">Accueil</a>
+                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                    <span>Nos Services</span>
+                </nav>
+                <h1 class="page-hero-title">Nos Services</h1>
+                <p class="page-hero-subtitle">Des solutions complètes pour tous vos travaux du bâtiment, réalisées par des artisans qualifiés depuis 1913.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="container">
+            <div class="trust-bar-inner">
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span>Garantie décennale</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Intervention rapide</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span>Qualibat RGE</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span>4ème génération</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Services Families -->
+    <section class="services-families">
+        <div class="container">
+            
+            <!-- Couverture & Zinguerie -->
+            <article class="family-card reveal">
+                <div class="family-header">
+                    <div class="family-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <h3>Couverture & Zinguerie</h3>
+                    <p>Protection et étanchéité de votre toiture avec des matériaux de qualité et un savoir-faire transmis depuis 4 générations.</p>
+                    <a href="couverture-zinguerie.html" class="btn btn-primary">
+                        Découvrir nos prestations
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+                <div class="family-services">
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Réfection de toiture</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Pose d'ardoises</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Pose de tuiles</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Travaux de zinc</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Gouttières</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Étanchéité</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Velux & fenêtres de toit</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Réparation de fuites</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Plomberie & Sanitaire -->
+            <article class="family-card reveal">
+                <div class="family-header">
+                    <div class="family-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M2 12h20"/><circle cx="12" cy="12" r="4"/></svg>
+                    </div>
+                    <h3>Plomberie & Sanitaire</h3>
+                    <p>Installation, réparation et rénovation de vos équipements sanitaires et réseaux d'eau par des plombiers expérimentés.</p>
+                    <a href="plomberie-sanitaire.html" class="btn btn-primary">
+                        Découvrir nos prestations
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+                <div class="family-services">
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Installation sanitaire</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Salle de bain complète</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Réseaux d'eau</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Dépannage urgent</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Débouchage</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Chauffe-eau</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Robinetterie</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>WC & évacuations</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Chauffage & Climatisation -->
+            <article class="family-card reveal">
+                <div class="family-header">
+                    <div class="family-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-6.88 17.23l.53.47A10 10 0 1 0 12 2z"/><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                    </div>
+                    <h3>Chauffage, Climatisation & Isolation</h3>
+                    <p>Solutions de confort thermique toute l'année : chauffage performant, climatisation et isolation pour réduire vos factures.</p>
+                    <a href="chauffage-isolation.html" class="btn btn-primary">
+                        Découvrir nos prestations
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+                <div class="family-services">
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Chaudières gaz/fioul</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Pompes à chaleur</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Radiateurs</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Plancher chauffant</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Climatisation</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Isolation thermique</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Entretien annuel</span>
+                    </div>
+                    <div class="family-service-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Dépannage chauffage</span>
+                    </div>
+                </div>
+            </article>
+            
+        </div>
+    </section>
+    
+    <!-- Urgence Banner -->
+    <section class="urgence-banner">
+        <div class="container">
+            <div class="urgence-inner">
+                <div class="urgence-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="urgence-text">
+                    <h4>Urgence ? Nous intervenons rapidement</h4>
+                    <p>Fuite, panne de chauffage... Contactez-nous !</p>
+                </div>
+                <a href="tel:0320567877" class="btn btn-white">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    03 20 56 78 77
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us -->
+    <section class="why-section">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label gold">Pourquoi nous choisir</span>
+                <h2 class="section-title light">L'expertise SA Barbieux</h2>
+                <p class="section-subtitle light" style="margin: 0 auto;">Plus de 110 ans d'expérience au service de votre habitat.</p>
+            </div>
+            
+            <div class="why-grid">
+                <div class="why-card reveal">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h4>Garantie décennale</h4>
+                    <p>Tous nos travaux sont couverts par notre assurance décennale pour votre tranquillité.</p>
+                </div>
+                
+                <div class="why-card reveal">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h4>Certifié Qualibat RGE</h4>
+                    <p>Certification officielle garantissant notre compétence et l'accès aux aides de l'État.</p>
+                </div>
+                
+                <div class="why-card reveal">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h4>Équipe locale</h4>
+                    <p>Une équipe de professionnels basée à Lille, réactive et proche de vous.</p>
+                </div>
+                
+                <div class="why-card reveal">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h4>Intervention rapide</h4>
+                    <p>Disponibilité et réactivité pour répondre à vos urgences et vos projets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-inner">
+                <div class="cta-content">
+                    <h3>Prêt à démarrer votre projet ?</h3>
+                    <p>Contactez-nous pour un devis gratuit et personnalisé sous 48h.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="tel:0320567877" class="btn btn-dark">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        03 20 56 78 77
+                    </a>
+                    <a href="contact.html" class="btn btn-dark">Demander un devis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="LOGO.png" alt="SA Barbieux" width="48" height="48">
+                        <span class="logo-text">SA <span>Barbieux</span></span>
+                    </a>
+                    <p class="footer-description">Artisans du bâtiment depuis 1913. Couverture, plomberie, chauffage et plus à Lille et dans toute la métropole.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="couverture-zinguerie.html">Couverture & Zinguerie</a></li>
+                        <li><a href="plomberie-sanitaire.html">Plomberie & Sanitaire</a></li>
+                        <li><a href="chauffage-isolation.html">Chauffage & Climatisation</a></li>
+                        <li><a href="realisations.html">Réalisations</a></li>
+                        <li><a href="avis.html">Avis clients</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>
+                        <strong>Adresse</strong><br>
+                        78 rue Malsence<br>
+                        59800 Lille
+                    </p>
+                    <p>
+                        <strong>Téléphone</strong><br>
+                        <a href="tel:0320567877">03 20 56 78 77</a>
+                    </p>
+                    <p>
+                        <strong>Email</strong><br>
+                        <a href="mailto:pbarbieux@wanadoo.fr">pbarbieux@wanadoo.fr</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 SA Barbieux. Tous droits réservés. | Entreprise certifiée Qualibat RGE</p>
+                <div class="footer-legal">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to top -->
+    <a href="#" class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+        <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+    </a>
+    
+    <!-- Mobile phone button -->
+    <a href="tel:0320567877" class="mobile-phone" aria-label="Appeler">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
